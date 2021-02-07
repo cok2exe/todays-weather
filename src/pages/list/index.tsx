@@ -59,7 +59,7 @@ const List: React.FC = () => {
           {displayedCities.map(city => (
               <li key={city.id}>
                 <Link to={`/detail/${city.id}`}>
-                  <Badge title={city.country}/>
+                  <Badge title={city.country || city.name}/>
                   {city.name}
                 </Link>
               </li>
