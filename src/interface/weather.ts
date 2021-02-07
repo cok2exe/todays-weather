@@ -1,44 +1,51 @@
-export interface IWeather {
-  coord: {
-    lon: number
-    lat: number
-  },
-  weather: [
-    {
-      id: number
-      main: string
-      description: string
-      icon: string
-    }
-  ],
+import { ICoord } from './common'
+
+export interface ICurrentWeather {
+  coord: ICoord
+  weather: IWeather[]
   base: string
-  main: {
-    temp: number
-    pressure: number
-    humidity: number
-    temp_min: number
-    temp_max: number
-    feels_like: number
-  },
+  main: IMain
   visibility: number
-  wind: {
-    speed: number
-    deg: number
-  },
-  clouds: {
-    all: number
-  },
+  wind: IWind
+  clouds: IClouds
   dt: number
-  sys: {
-    type: number
-    id: number
-    message: number
-    country: string
-    sunrise: number
-    sunset: number
-  },
-  id: number,
+  sys: ISys
+  id: number
   name: string
   cod: number
   timezone: number
+}
+
+interface IWeather {
+  id: number
+  main: string
+  description: string
+  icon: string
+}
+
+interface IMain {
+  temp: number
+  pressure: number
+  humidity: number
+  temp_min: number
+  temp_max: number
+  feels_like: number
+}
+
+interface IWind {
+  speed: number
+  deg: number
+}
+
+interface IClouds {
+  all: number
+}
+
+interface ISys {
+  type: number
+  id: number
+  message: number
+  country: string
+  sunrise: number
+  sunset: number
 }

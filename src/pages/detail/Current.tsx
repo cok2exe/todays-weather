@@ -1,16 +1,16 @@
 import React from 'react'
 import Badge from '../../components/Badge'
-import { IWeather } from '../../interface/weather'
+import { ICurrentWeather } from '../../interface/weather'
 import { StyledCurrent } from './styled'
 
 interface IProps {
-  weather?: IWeather
+  currentWeather?: ICurrentWeather
 }
 
-const Current: React.FC<IProps> = ({weather}) => {
+const Current: React.FC<IProps> = ({ currentWeather }) => {
   return (
     <StyledCurrent>
-      {weather?.weather.map(item => (
+      {currentWeather?.weather.map(item => (
           <div className="weatherText" key={item.id}>
             <img
               src={`http://openweathermap.org/img/wn/${item.icon}.png`}
@@ -21,16 +21,16 @@ const Current: React.FC<IProps> = ({weather}) => {
         )
       )}
 
-      <b>{Math.round(weather?.main.temp || 0)}°C</b>
+      <b>{Math.round(currentWeather?.main.temp || 0)}°C</b>
 
       <div className="weatherMaxMin">
         <Badge title="순간 최고" />
         <p>
-          {Math.round(weather?.main.temp_max || 0)}°C
+          {Math.round(currentWeather?.main.temp_max || 0)}°C
         </p>
         <Badge title="순간 최저" primary />
         <p>
-          {Math.round(weather?.main.temp_min || 0)}°C
+          {Math.round(currentWeather?.main.temp_min || 0)}°C
         </p>
       </div>
     </StyledCurrent>

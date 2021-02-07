@@ -2,15 +2,15 @@ import React from 'react'
 import Badge from '../../components/Badge'
 import moment from 'moment'
 import { ICity } from '../../interface/city'
-import { IWeather } from '../../interface/weather'
+import { ICurrentWeather } from '../../interface/weather'
 import { StyledHeader } from './styled'
 
 interface IProps {
   city?: ICity
-  weather?: IWeather
+  currentWeather?: ICurrentWeather
 }
 
-const Header: React.FC<IProps> = ({ city, weather }) => {
+const Header: React.FC<IProps> = ({ city, currentWeather }) => {
   return (
     <StyledHeader>
       <Badge
@@ -34,7 +34,7 @@ const Header: React.FC<IProps> = ({ city, weather }) => {
         현재 날씨는?
       </h2>
       <u>
-        {moment.utc().add(weather?.timezone, 'seconds').format('HH:mm, MM/DD')}
+        {currentWeather?.timezone && moment.utc().add(currentWeather.timezone, 'seconds').format('HH:mm, MM/DD')}
       </u>
     </StyledHeader>
   )

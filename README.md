@@ -2,13 +2,29 @@
 
 세계 도시의 현재 날씨 🏖 를 표시해주자!
 
----
+<br/>
+
+```shell
+yarn start
+```
+
+or
+
+```shell
+npm start
+```
+
+<br/>
 
 ## 프로젝트 시작 전 유의사항
 
 .env 파일에 REACT_APP_API_KEY 라는 키값으로 Open Weather API 키 값을 넣어주세요!
 
+<br/>
+
 ---
+
+<br/>
 
 ## 프로젝트 폴더 & 파일 구조
 

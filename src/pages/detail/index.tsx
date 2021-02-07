@@ -4,16 +4,15 @@ import { useParams } from 'react-router'
 import { Weather } from '../../api'
 import { ICity } from '../../interface/city'
 import { Divider, StyledWrapper } from './styled'
-import { IWeather } from '../../interface/weather'
+import { ICurrentWeather } from '../../interface/weather'
 import Current from './Current'
 import Info from './Info'
-import 'moment-timezone'
 import Header from './Header'
 
 const Detail: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const [city, setCity] = useState<ICity>()
-  const [weather, setWeather] = useState<IWeather>()
+  const [currentWeather, setCurrentWeather] = useState<ICurrentWeather>()
 
   const fetchWeatherById = async () => {
     try {
@@ -34,8 +33,8 @@ const Detail: React.FC = () => {
         return
       }
 
-      const weather: IWeather = await Weather.getWeatherByCity(+city?.id)
-      setWeather(weather)
+      const weather: ICurrentWeather = await Weather.getWeatherByCity(+city?.id)
+      setCurrentWeather(weather)
     } catch (err) {
       alert(err.message)
     }
@@ -51,13 +50,13 @@ const Detail: React.FC = () => {
   return (
     <Layout>
       <StyledWrapper>
-        <Header city={city} weather={weather} />
+        <Header city={city} currentWeather={currentWeather} />
 
-        <Current weather={weather}/>
+        <Current currentWeather={currentWeather}/>
 
         <Divider/>
 
-        <Info weather={weather}/>
+        <Info currentWeather={currentWeather}/>
       </StyledWrapper>
     </Layout>
   )
