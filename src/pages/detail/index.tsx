@@ -3,13 +3,12 @@ import Layout from '../../components/Layout'
 import { useParams } from 'react-router'
 import { Weather } from '../../api'
 import { ICity } from '../../interface/city'
-import Badge from '../../components/Badge'
 import { Divider, StyledWrapper } from './styled'
 import { IWeather } from '../../interface/weather'
-import moment from 'moment'
 import Current from './Current'
 import Info from './Info'
 import 'moment-timezone'
+import Header from './Header'
 
 const Detail: React.FC = () => {
   const {id} = useParams<{ id: string }>()
@@ -52,31 +51,7 @@ const Detail: React.FC = () => {
   return (
     <Layout>
       <StyledWrapper>
-        <header>
-          <Badge
-            title={
-              <>
-                {city?.country && (
-                  <img
-                    src={`http://openweathermap.org/images/flags/${city?.country.toLowerCase()}.png`}
-                    alt=""
-                  />
-                )}
-                {city?.country || city?.name}
-              </>
-            }
-            big
-          />
-          <br/>
-          <h2>
-            {city?.name}의
-            <br/>
-            현재 날씨는?
-          </h2>
-          <u>
-            {weather?.dt && moment.utc().add(weather.timezone, 'seconds').format('HH:mm, MM/DD')}
-          </u>
-        </header>
+        <Header city={city} weather={weather} />
 
         <Current weather={weather}/>
 

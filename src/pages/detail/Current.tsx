@@ -1,6 +1,7 @@
 import React from 'react'
 import Badge from '../../components/Badge'
 import { IWeather } from '../../interface/weather'
+import { StyledCurrent } from './styled'
 
 interface IProps {
   weather?: IWeather
@@ -8,7 +9,7 @@ interface IProps {
 
 const Current: React.FC<IProps> = ({weather}) => {
   return (
-    <article>
+    <StyledCurrent>
       {weather?.weather.map(item => (
           <div className="weatherText" key={item.id}>
             <img
@@ -22,13 +23,17 @@ const Current: React.FC<IProps> = ({weather}) => {
 
       <b>{Math.round(weather?.main.temp || 0)}°C</b>
 
-      <div className="weatherFeelsLike">
-        <Badge title="채감 온도" primary={(weather?.main.feels_like || 0) < 0}/>
-        <span>
-          {Math.round(weather?.main.feels_like || 0)}°C
-        </span>
+      <div className="weatherMaxMin">
+        <Badge title="순간 최고" />
+        <p>
+          {Math.round(weather?.main.temp_max || 0)}°C
+        </p>
+        <Badge title="순간 최저" primary />
+        <p>
+          {Math.round(weather?.main.temp_min || 0)}°C
+        </p>
       </div>
-    </article>
+    </StyledCurrent>
   )
 }
 

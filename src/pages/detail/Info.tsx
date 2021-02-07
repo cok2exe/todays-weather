@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledWeather } from './styled'
+import { StyledInfo, StyledWeather } from './styled'
 import moment from 'moment'
 import { IWeather } from '../../interface/weather'
 
@@ -9,7 +9,7 @@ interface IProps {
 
 const Info: React.FC<IProps> = ({weather}) => {
   return (
-    <div className="weatherLayout">
+    <StyledInfo>
       <StyledWeather>
         <span>일출</span>
         <p>{moment.utc(weather?.sys.sunrise, 'X').format('HH:mm')}</p>
@@ -18,7 +18,10 @@ const Info: React.FC<IProps> = ({weather}) => {
         <span>일몰</span>
         <p>{moment.utc(weather?.sys.sunset, 'X').format('HH:mm')}</p>
       </StyledWeather>
-
+      <StyledWeather>
+        <span>체감 온도</span>
+        <p>{Math.round(weather?.main.feels_like || 0)}°C</p>
+      </StyledWeather>
       <StyledWeather>
         <span>습도</span>
         <p>{weather?.main.humidity}%</p>
@@ -27,7 +30,7 @@ const Info: React.FC<IProps> = ({weather}) => {
         <span>기압</span>
         <p>{weather?.main.pressure}hPa</p>
       </StyledWeather>
-    </div>
+    </StyledInfo>
   )
 }
 
