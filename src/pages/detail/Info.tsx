@@ -7,16 +7,20 @@ interface IProps {
   weather?: IWeather
 }
 
-const Info: React.FC<IProps> = ({weather}) => {
+const Info: React.FC<IProps> = ({ weather }) => {
   return (
     <StyledInfo>
       <StyledWeather>
         <span>일출</span>
-        <p>{moment.utc(weather?.sys.sunrise, 'X').add(weather?.timezone, 'seconds').format('HH:mm')}</p>
+        <p>{weather?.sys.sunrise && moment.utc(weather.sys.sunrise, 'X').add(weather.timezone, 'seconds').format('HH:mm')}</p>
       </StyledWeather>
       <StyledWeather>
         <span>일몰</span>
-        <p>{moment.utc(weather?.sys.sunset, 'X').add(weather?.timezone, 'seconds').format('HH:mm')}</p>
+        <p>{weather?.sys.sunset && moment.utc(weather.sys.sunset, 'X').add(weather.timezone, 'seconds').format('HH:mm')}</p>
+      </StyledWeather>
+      <StyledWeather>
+        <span>가시 거리</span>
+        <p>{Math.round((weather?.visibility || 0) / 1000).toFixed(1)}km</p>
       </StyledWeather>
       <StyledWeather>
         <span>체감 온도</span>

@@ -11,7 +11,7 @@ import 'moment-timezone'
 import Header from './Header'
 
 const Detail: React.FC = () => {
-  const {id} = useParams<{ id: string }>()
+  const { id } = useParams<{ id: string }>()
   const [city, setCity] = useState<ICity>()
   const [weather, setWeather] = useState<IWeather>()
 
