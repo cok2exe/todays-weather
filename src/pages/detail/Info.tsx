@@ -12,11 +12,11 @@ const Info: React.FC<IProps> = ({weather}) => {
     <StyledInfo>
       <StyledWeather>
         <span>일출</span>
-        <p>{moment.utc(weather?.sys.sunrise, 'X').format('HH:mm')}</p>
+        <p>{moment.utc(weather?.sys.sunrise, 'X').add(weather?.timezone, 'seconds').format('HH:mm')}</p>
       </StyledWeather>
       <StyledWeather>
         <span>일몰</span>
-        <p>{moment.utc(weather?.sys.sunset, 'X').format('HH:mm')}</p>
+        <p>{moment.utc(weather?.sys.sunset, 'X').add(weather?.timezone, 'seconds').format('HH:mm')}</p>
       </StyledWeather>
       <StyledWeather>
         <span>체감 온도</span>

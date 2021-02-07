@@ -34,7 +34,7 @@ const Header: React.FC<IProps> = ({ city, weather }) => {
         현재 날씨는?
       </h2>
       <u>
-        {weather?.dt && moment.utc().add(weather.timezone, 'seconds').format('HH:mm, MM/DD')}
+        {moment.utc().add(weather?.timezone, 'seconds').format('HH:mm, MM/DD')}
       </u>
     </StyledHeader>
   )
