@@ -1,11 +1,10 @@
-import React from 'react';
+import React from 'react'
+import Routes from './Routes'
 
 function App() {
   return (
-    <div className="App">
-      today's weahter
-    </div>
-  );
+    <Routes/>
+  )
 }
 
-export default App;
+export default App
