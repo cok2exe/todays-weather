@@ -24,7 +24,7 @@ const Detail: React.FC = () => {
       const cityById = response.find(city => city.id === +id)
       setCity(cityById)
     } catch (err) {
-      alert(err)
+      alert(err.message)
     }
   }
 
@@ -37,7 +37,7 @@ const Detail: React.FC = () => {
       const weather: IWeather = await Weather.getWeatherByCity(+city?.id)
       setWeather(weather)
     } catch (err) {
-      alert(err)
+      alert(err.message)
     }
   }
   useEffect(() => {
