@@ -48,7 +48,7 @@ const List: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', infiniteScroll)
     }
-  }, [searchedCities, infiniteScroll])
+  }, [infiniteScroll])
 
   return (
     <Layout>
