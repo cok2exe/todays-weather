@@ -49,19 +49,24 @@ const Detail: React.FC = () => {
     getWeatherByCity()
   }, [city])
 
-  console.log(weather)
-
   return (
     <Layout>
       <StyledWrapper>
         <header>
-          <Badge title={city?.country || city?.name || ''} big/>
-          {city?.country && (
-            <img
-              src={`http://openweathermap.org/images/flags/${city?.country.toLowerCase()}.png`}
-              alt=""
-            />
-          )}
+          <Badge
+            title={
+              <>
+                {city?.country && (
+                  <img
+                    src={`http://openweathermap.org/images/flags/${city?.country.toLowerCase()}.png`}
+                    alt=""
+                  />
+                )}
+                {city?.country || city?.name}
+              </>
+            }
+            big
+          />
           <br/>
           <h2>
             {city?.name}의

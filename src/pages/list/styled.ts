@@ -31,3 +31,34 @@ export const StyledWrapper = styled.section`
     }
   }
 `
+
+
+export const StyledSearch = styled.div`
+  background-color: rgba(86, 115, 235, 0.12);
+  padding: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  
+  > input {
+    border: none;
+    flex: 1;
+    margin-right: 8px;
+    height: 32px;
+    padding: 0 12px;
+    
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  > button {
+    background-color: rgba(86, 115, 235, 0.3);
+    border: none;
+    color: rgb(86, 115, 235);
+    cursor: pointer;
+    padding: 0 12px;
+    border-radius: 4px;
+    height: 32px;
+  }
+`

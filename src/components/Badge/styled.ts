@@ -9,4 +9,8 @@ export const StyledBadge = styled.span<{ big: boolean, primary: boolean }>`
   font-size: ${props => props.big ? 16 : 11}px;
   margin-right: 4px;
   padding: 0.25em 0.5em;
+  
+  > img {
+    margin-right: 4px;
+  }
 `

@@ -2,7 +2,7 @@ import React from 'react'
 import { StyledBadge } from './styled'
 
 interface IProps {
-  title: string
+  title: React.ReactNode
   big?: boolean
   primary?: boolean
 }
